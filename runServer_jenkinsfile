@@ -1,13 +1,14 @@
 node {
-    action = load("build.groovy")
+	def rootDir = pwd()
+    def build = load("${rootDir}@script/build.groovy")
     
     stage('Handle last server'){
-        action.stopServerIfItRun()
-        action.killLastContainer()
+        build.stopServerIfItRun()
+        build.killLastContainer()
     }
     
     stage('Handle new server') {
-       action.runDetachedContainer(map)
-       action.launchServer()
+       build.runDetachedContainer(map)
+       build.launchServer()
     }
 }
