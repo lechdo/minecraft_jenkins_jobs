@@ -1,0 +1,10 @@
+node {
+	def action = load("build.groovy")
+
+    stage("stop server") {
+        action.stopServerIfItRun()
+    }
+    stage("kill container") {
+        action.killLastContainer()
+    }
+}

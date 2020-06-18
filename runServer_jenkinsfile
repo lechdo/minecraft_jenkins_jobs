@@ -1,0 +1,13 @@
+node {
+    action = load("build.groovy")
+    
+    stage('Handle last server'){
+        action.stopServerIfItRun()
+        action.killLastContainer()
+    }
+    
+    stage('Handle new server') {
+       action.runDetachedContainer(map)
+       action.launchServer()
+    }
+}
