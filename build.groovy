@@ -67,3 +67,5 @@ def launchServer() {
         echo "There is no container 'minecraft'."
     }	
 }
+
+return this
