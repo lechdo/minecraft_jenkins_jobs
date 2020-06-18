@@ -1,6 +1,6 @@
 node {
 	def rootDir = pwd()
-    def build = load("${rootDir}@script/build.groovy")
+    def build = load("${rootDir}/build.groovy")
     
     stage('Handle last server'){
         build.stopServerIfItRun()
